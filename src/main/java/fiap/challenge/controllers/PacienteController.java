@@ -19,7 +19,7 @@ public class PacienteController {
 	    }
 	 
 	 @GetMapping(path="/api/paciente/{codigo}")
-	    public ResponseEntity<PacienteModel> consultar(@PathVariable("codigo") Integer codigo) {
+	    public ResponseEntity<PacienteModel> consultarPaciente(@PathVariable("codigo") Integer codigo) {
 	        return repository.findById(codigo).map(record -> ResponseEntity.ok().body(record))
 	                .orElse(ResponseEntity.notFound().build());
 	    }
@@ -28,4 +28,11 @@ public class PacienteController {
 	    public Iterable<PacienteModel> todos(){
 	        return repository.findAll();
 	    }
+	 
+	 @GetMapping(path="/api/paciente/cpf/{codigo}")
+	    public ResponseEntity<PacienteModel> consultarCPF(@PathVariable("codigo") String codigo) {
+	        return repository.buscarPorCPF(codigo).map(record -> ResponseEntity.ok().body(record))
+	                .orElse(ResponseEntity.notFound().build());
+	    }
+	 
 }
