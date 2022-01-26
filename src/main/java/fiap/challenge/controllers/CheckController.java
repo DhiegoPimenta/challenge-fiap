@@ -1,5 +1,9 @@
 package fiap.challenge.controllers;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,5 +18,10 @@ public class CheckController {
     @ResponseStatus(HttpStatus.OK)
     public String CheckHealth() {
         return "online";
+    }
+    
+    @RequestMapping(value = "/")
+    public void redirect(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/swagger-ui.html#/");
     }
 }
