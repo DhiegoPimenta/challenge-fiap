@@ -1,0 +1,31 @@
+package fiap.challenge.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import fiap.challenge.models.PacienteModel;
+import fiap.challenge.repositories.IPacienteRepository;
+
+@RestController
+public class PacienteController {
+
+	 @Autowired
+	    private IPacienteRepository repository;
+	 
+	 @PostMapping(path = "/api/paciente/adicionar")
+	    public PacienteModel salvar(@RequestBody PacienteModel paciente) {
+	        return repository.save(paciente);
+	    }
+	 
+	 @GetMapping(path="/api/paciente/{codigo}")
+	    public ResponseEntity<PacienteModel> consultar(@PathVariable("codigo") Integer codigo) {
+	        return repository.findById(codigo).map(record -> ResponseEntity.ok().body(record))
+	                .orElse(ResponseEntity.notFound().build());
+	    }
+	 
+	 @GetMapping(path="/api/paciente/todos")
+	    public Iterable<PacienteModel> todos(){
+	        return repository.findAll();
+	    }
+}
