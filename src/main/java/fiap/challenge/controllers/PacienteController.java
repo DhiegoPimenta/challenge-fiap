@@ -35,4 +35,10 @@ public class PacienteController {
 	                .orElse(ResponseEntity.notFound().build());
 	    }
 	 
+	 @PostMapping(path = "/api/paciente/buscarPorOutrosDados")
+	    public ResponseEntity<PacienteModel> buscarPacienteOutrosDados(@RequestBody PacienteModel paciente) {
+		 return repository.buscarPorOutrosDados(paciente).map(record -> ResponseEntity.ok().body(record))
+	                .orElse(ResponseEntity.notFound().build());
+	    }
+	 
 }
