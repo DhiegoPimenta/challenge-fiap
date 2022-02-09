@@ -1,134 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.hackerrank.projects</groupId>
-  <artifactId>springboot-rest-api-sample</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
-  <properties>
-    <java.version>1.8</java.version>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.1.1.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-   
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <optional>true</optional>
-    </dependency>
-
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-test-autoconfigure</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.hackerrank.applications</groupId>
-      <artifactId>junit-ordered-test-runner</artifactId>
-      <version>1.0.1</version>
-      <scope>test</scope>
-    </dependency>
-    
-    <dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-swagger2</artifactId>
-    <version>2.9.2</version>
-</dependency>
-
-<dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-swagger-ui</artifactId>
-    <version>2.9.2</version>
-</dependency>
-
- <dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-  </dependencies>
-  
-  <name>springfox-bean-validators</name>
-  <url>https://github.com/springfox/springfox</url>
-  <description>JSON API documentation for spring based applications</description>
-  <scm>
-    <url>scm:git:git@github.com:springfox/springfox.git</url>
-    <connection>scm:git:git@github.com:springfox/springfox.git</connection>
-    <developerConnection>scm:git:git@github.com:springfox/springfox.git</developerConnection>
-  </scm>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>2.1.1.RELEASE</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-
-        <executions>
-          <execution>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
+  <modelVersion>4.0.0</modelVersion>  
+  <groupId>com.hackerrank.projects</groupId>  
+  <artifactId>microservice</artifactId>  
+  <version>1.0.0-SNAPSHOT</version>  
+  <packaging>jar</packaging>  
+  <properties> 
+    <java.version>1.8</java.version>  
+    <maven.compiler.source>1.8</maven.compiler.source>  
+    <maven.compiler.target>1.8</maven.compiler.target>  
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
+  </properties>  
+  <dependencyManagement> 
+    <dependencies> 
+      <dependency> 
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-dependencies</artifactId>  
+        <version>2.1.1.RELEASE</version>  
+        <type>pom</type>  
+        <scope>import</scope> 
+      </dependency> 
+    </dependencies> 
+  </dependencyManagement>  
+  <dependencies> 
+    <dependency> 
+      <groupId>com.fasterxml.jackson.datatype</groupId>  
+      <artifactId>jackson-datatype-jsr310</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-amqp</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.amqp</groupId>  
+      <artifactId>spring-rabbit-test</artifactId>  
+      <scope>test</scope> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-security</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-data-jpa</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-web</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-devtools</artifactId>  
+      <optional>true</optional> 
+    </dependency>  
+    <dependency> 
+      <groupId>com.h2database</groupId>  
+      <artifactId>h2</artifactId>  
+      <scope>runtime</scope> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework</groupId>  
+      <artifactId>spring-test</artifactId>  
+      <scope>test</scope> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-test</artifactId>  
+      <scope>test</scope> 
+    </dependency>  
+    <dependency> 
+      <groupId>io.jsonwebtoken</groupId>  
+      <artifactId>jjwt</artifactId>  
+      <version>0.9.1</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-test-autoconfigure</artifactId>  
+      <scope>test</scope> 
+    </dependency>  
+    <dependency> 
+      <groupId>junit</groupId>  
+      <artifactId>junit</artifactId>  
+      <scope>test</scope> 
+    </dependency>  
+    <dependency> 
+      <groupId>com.hackerrank.applications</groupId>  
+      <artifactId>junit-ordered-test-runner</artifactId>  
+      <version>1.0.1</version>  
+      <scope>test</scope> 
+    </dependency>  
+    <dependency> 
+      <groupId>io.springfox</groupId>  
+      <artifactId>springfox-swagger2</artifactId>  
+      <version>2.9.2</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>io.springfox</groupId>  
+      <artifactId>springfox-swagger-ui</artifactId>  
+      <version>2.9.2</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>mysql</groupId>  
+      <artifactId>mysql-connector-java</artifactId>  
+      <scope>runtime</scope> 
+    </dependency> 
+  </dependencies>  
+  <name>springfox-bean-validators</name>  
+  <url>https://github.com/springfox/springfox</url>  
+  <description>JSON API documentation for spring based applications</description>  
+  <scm> 
+    <url>scm:git:git@github.com:springfox/springfox.git</url>  
+    <connection>scm:git:git@github.com:springfox/springfox.git</connection>  
+    <developerConnection>scm:git:git@github.com:springfox/springfox.git</developerConnection> 
+  </scm>  
+  <build> 
+    <pluginManagement> 
+      <plugins> 
+        <plugin> 
+          <groupId>org.springframework.boot</groupId>  
+          <artifactId>spring-boot-maven-plugin</artifactId>  
+          <version>2.1.1.RELEASE</version> 
+        </plugin>  
+        <plugin> 
+          <groupId>com.microsoft.azure</groupId>  
+          <artifactId>azure-webapp-maven-plugin</artifactId>  
+          <version>1.9.0</version> 
+        </plugin> 
+      </plugins> 
+    </pluginManagement>  
+    <plugins> 
+      <plugin> 
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-maven-plugin</artifactId>  
+        <executions> 
+          <execution> 
+            <goals> 
+              <goal>repackage</goal> 
+            </goals> 
+          </execution> 
+        </executions> 
+      </plugin>  
+      <plugin> 
+        <groupId>com.microsoft.azure</groupId>  
+        <artifactId>azure-webapp-maven-plugin</artifactId>  
+        <version>1.9.0</version>  
+        <configuration> 
+          <schemaVersion>V2</schemaVersion> 
+          <resourceGroup>microservice-1641608234731-rg</resourceGroup>  
+          <appName>challenge-fiap</appName>  
+          <pricingTier>B1</pricingTier>  
+          <region>centralus</region>  
+          <runtime> 
+            <os>linux</os>  
+            <javaVersion>jre8</javaVersion>  
+            <webContainer>jre8</webContainer> 
+          </runtime>  
+          <appSettings> 
+            <property> 
+              <name>JAVA_OPTS</name>  
+              <value>-Dserver.port=80</value> 
+            </property> 
+          </appSettings>  
+          <deployment> 
+            <resources> 
+              <resource> 
+                <directory>${project.basedir}/target</directory>  
+                <includes> 
+                  <include>*.jar</include> 
+                </includes> 
+              </resource> 
+            </resources> 
+          </deployment> 
+        </configuration> 
+      </plugin> 
+    </plugins> 
+  </build> 
 </project>

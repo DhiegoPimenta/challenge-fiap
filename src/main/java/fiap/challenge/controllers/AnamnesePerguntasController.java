@@ -1,5 +1,8 @@
 package fiap.challenge.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,4 +48,18 @@ public class AnamnesePerguntasController {
 	public void  deletarAnamnesePerguntas(@PathVariable("codigo") Integer codigo) {
 		repository.deleteById(codigo);
 	}
+ 
+ @GetMapping(path="/api/anamnese/perguntas/verificar/{total}")
+ public Map<String, String> verificarRespostas(@PathVariable("total") Integer total) {
+	 HashMap<String, String> map = new HashMap<>();
+	 if(total <= 25) {
+		 map.put("emergencia", "2");
+	     map.put("texto", "SEM PRIORIDADE");;
+	     return map;
+	 } else {
+			 map.put("emergencia", "0");
+		     map.put("texto", "PRIORIDADE MÁXIMA");;
+		     return map;
+		 } 
+	 }
 }
