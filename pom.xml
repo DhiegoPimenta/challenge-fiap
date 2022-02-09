@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
   <modelVersion>4.0.0</modelVersion>  
   <groupId>com.hackerrank.projects</groupId>  
-  <artifactId>microservice</artifactId>  
+  <artifactId>springboot-rest-api-sample</artifactId>  
   <version>1.0.0-SNAPSHOT</version>  
   <packaging>jar</packaging>  
   <properties> 
@@ -25,23 +25,6 @@
   </dependencyManagement>  
   <dependencies> 
     <dependency> 
-      <groupId>com.fasterxml.jackson.datatype</groupId>  
-      <artifactId>jackson-datatype-jsr310</artifactId> 
-    </dependency>  
-    <dependency> 
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-amqp</artifactId> 
-    </dependency>  
-    <dependency> 
-      <groupId>org.springframework.amqp</groupId>  
-      <artifactId>spring-rabbit-test</artifactId>  
-      <scope>test</scope> 
-    </dependency>  
-    <dependency> 
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-security</artifactId> 
-    </dependency>  
-    <dependency> 
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-data-jpa</artifactId> 
     </dependency>  
@@ -55,11 +38,6 @@
       <optional>true</optional> 
     </dependency>  
     <dependency> 
-      <groupId>com.h2database</groupId>  
-      <artifactId>h2</artifactId>  
-      <scope>runtime</scope> 
-    </dependency>  
-    <dependency> 
       <groupId>org.springframework</groupId>  
       <artifactId>spring-test</artifactId>  
       <scope>test</scope> 
@@ -68,11 +46,6 @@
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-test</artifactId>  
       <scope>test</scope> 
-    </dependency>  
-    <dependency> 
-      <groupId>io.jsonwebtoken</groupId>  
-      <artifactId>jjwt</artifactId>  
-      <version>0.9.1</version> 
     </dependency>  
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
@@ -121,12 +94,12 @@
           <groupId>org.springframework.boot</groupId>  
           <artifactId>spring-boot-maven-plugin</artifactId>  
           <version>2.1.1.RELEASE</version> 
-        </plugin>  
+        </plugin>
         <plugin> 
           <groupId>com.microsoft.azure</groupId>  
           <artifactId>azure-webapp-maven-plugin</artifactId>  
           <version>1.9.0</version> 
-        </plugin> 
+        </plugin>  
       </plugins> 
     </pluginManagement>  
     <plugins> 
@@ -146,8 +119,8 @@
         <artifactId>azure-webapp-maven-plugin</artifactId>  
         <version>1.9.0</version>  
         <configuration> 
-          <schemaVersion>V2</schemaVersion> 
-          <resourceGroup>microservice-1641608234731-rg</resourceGroup>  
+          <schemaVersion>V2</schemaVersion>  
+          <resourceGroup>springboot-rest-api-sample-1644365679738-rg</resourceGroup>  
           <appName>challenge-fiap</appName>  
           <pricingTier>B1</pricingTier>  
           <region>centralus</region>  
@@ -155,12 +128,12 @@
             <os>linux</os>  
             <javaVersion>jre8</javaVersion>  
             <webContainer>jre8</webContainer> 
-          </runtime>  
-          <appSettings> 
-            <property> 
-              <name>JAVA_OPTS</name>  
-              <value>-Dserver.port=80</value> 
-            </property> 
+          </runtime>
+          <appSettings>
+	          <property>
+		          <name>JAVA_OPTS</name>
+		          <value>-Dserver.port=80</value>
+	          </property>
           </appSettings>  
           <deployment> 
             <resources> 
