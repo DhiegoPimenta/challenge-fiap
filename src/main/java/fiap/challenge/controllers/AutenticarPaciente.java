@@ -50,8 +50,15 @@ public class AutenticarPaciente {
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		Map<String,String> dados = new HashMap<String,String>();
 		new JwtResponse(token);
-		dados.put( "token", token);
-		dados.put( "id", userDetails.getUsername());
+		dados.put("token", token);
+		
+		UsuarioPacienteModel dataUser = userDetailsService.dadosUsuario(Long.parseLong(userDetails.getUsername()));
+		
+		dados.put("id", Long.toString(dataUser.getId()));
+		dados.put("username", dataUser.getUsername());
+		dados.put("nome", dataUser.getNome());
+		dados.put("sobrenome", dataUser.getSobrenome());
+		dados.put("cpf", dataUser.getCpf());
 		
 		return ResponseEntity.ok(dados);
 	}
