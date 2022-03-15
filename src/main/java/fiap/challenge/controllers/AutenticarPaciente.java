@@ -22,6 +22,7 @@ import fiap.challenge.JwtTokenUtil;
 import fiap.challenge.models.JwtRequest;
 import fiap.challenge.models.JwtResponse;
 import fiap.challenge.models.UserDTO;
+import fiap.challenge.models.UsuarioPacienteModel;
 import fiap.challenge.service.JwtUserDetailsService;
 
 
@@ -45,8 +46,6 @@ public class AutenticarPaciente {
 
 		final UserDetails userDetails = userDetailsService
 				.loadUserByUsername(authenticationRequest.getUsername());
-		System.out.println(userDetails);
-		System.out.println(userDetails.getAuthorities());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		Map<String,String> dados = new HashMap<String,String>();
@@ -54,13 +53,27 @@ public class AutenticarPaciente {
 		dados.put( "token", token);
 		dados.put( "id", userDetails.getUsername());
 		
-
 		return ResponseEntity.ok(dados);
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
-		return ResponseEntity.ok(userDetailsService.save(user));
+		UsuarioPacienteModel novoUser = userDetailsService.save(user);
+		UserDetails userDetails = userDetailsService
+				.loadUserByUsername(user.getUsername());
+
+		final String token = jwtTokenUtil.generateToken(userDetails);
+		Map<String,Object> dados = new HashMap<String,Object>();
+		new JwtResponse(token);
+		
+		dados.put( "token", token);
+		dados.put( "id", novoUser.getId());
+		dados.put( "username", novoUser.getUsername());
+		dados.put( "nome", novoUser.getNome());
+		dados.put( "sobrenome", novoUser.getSobrenome());
+		dados.put( "cpf", novoUser.getCpf());
+		
+		return ResponseEntity.ok(dados);
 	}
 
 	private void authenticate(String username, String password) throws Exception {
