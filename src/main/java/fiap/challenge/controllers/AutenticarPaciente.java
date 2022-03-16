@@ -54,6 +54,7 @@ public class AutenticarPaciente {
 		
 		UsuarioPacienteModel dataUser = userDetailsService.dadosUsuario(Long.parseLong(userDetails.getUsername()));
 		
+		//go
 		dados.put("id", Long.toString(dataUser.getId()));
 		dados.put("username", dataUser.getUsername());
 		dados.put("nome", dataUser.getNome());
