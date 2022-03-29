@@ -22,3 +22,5 @@ mvn spring-boot:run
 ## Documentação
 Assim que for executado a aplicação, ela vai subir na porta padrão 8080, e ao abrir no navegador (localhost:8080) você será redirecionado para o Swagger, um framework composto por diversas ferramentas que, independente da linguagem, auxilia a descrição, consumo e visualização de serviços de uma API REST, uma forma facil de visualizar as rotas e contratos da nossa API REST.
 
+![alt text](https://fiapchallengestorage.blob.core.windows.net/teste1/swagger.png)
+
